@@ -1,0 +1,15 @@
+---
+- name: Create a VM from a template
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: Clone the template
+    vmware_guest:
+      validate_certs: False
+      name: testvm_2
+      template: CentosTemplate
+      datacenter: Datacenter
+      folder: /Datacenter/vm
+      state: poweredon
+      # cluster: "{{ cluster_name }}"
+      wait_for_ip_address: no```
